@@ -1,0 +1,19 @@
+version: "2.0"
+
+rules:
+- rule: Activate form
+  steps:
+  - intent: request_restaurant
+  - action: restaurant_form
+  - active_loop: restaurant_form
+
+- rule: Submit form
+  condition:
+  - active_loop: restaurant_form
+  steps:
+  - action: restaurant_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_submit
+  - action: utter_slots_values
