@@ -1,0 +1,34 @@
+version: "2.0"
+
+stories:
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+  - active_loop: health_form
+  - action: utter_ask_confirm_exercise
+  - intent: affirm
+
+  - action: utter_ask_exercise
+  - intent: inform
+    entities:
+    - exercise
+
+  - action: utter_ask_sleep
+  - intent: inform
+    entities:
+    - sleep
+
+  - action: utter_ask_diet
+  - intent: affirm
+
+  - action: utter_ask_stress
+  - intent: inform
+    entities:
+     - stress
+
+
+
+
+
